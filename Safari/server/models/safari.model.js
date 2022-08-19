@@ -5,22 +5,22 @@ const mongoose = require('mongoose')
 const SafariSchema = new mongoose.Schema({
     animal: {
     type: String,
-    required: [true, 'Animal name is required'],
+    required: [true, 'Animal name is required.'],
     minlength: [3, 'Must be at least 3 characters']
     },   
     number: {
     type: Number,
-    required: [true, 'Number of animals is required'],
+    required: [true, 'Number of animals is required.'],
     minlength: [1, 'Must be at least 1 character']
     },
     location: {
     type: String,
-    required: [true, 'Location is required'],
+    required: [true, 'Location is required.'],
     minlength: [3, 'Must be at least 3 characters']
     },
     description: {
     type: String,
-    required: [true, 'Description is required'],
+    required: [true, 'Description is required.'],
     minlength: [3, 'Must be at least 3 characters']
     },
 },

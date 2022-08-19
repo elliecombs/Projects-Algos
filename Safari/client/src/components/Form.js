@@ -1,3 +1,4 @@
+//Add Page
 //Form to enter in the safaris 
 // {} = destructing and [ ] = is used for setting state
 import axios from 'axios';
@@ -14,7 +15,7 @@ const Safari = (props) => {
 
     const navigate = useNavigate();
     const onSubmitHandler = (e) => {
-        //prevent default behavior of the submit
+        //Prevent default behavior of the submit
         e.preventDefault();
         if(isUpdate) {
             //Update safari 
@@ -26,7 +27,7 @@ const Safari = (props) => {
             })
         }
         else{
-            //Create safari
+            //Create Safari
             createSafari();
         }
     }
@@ -55,11 +56,13 @@ const Safari = (props) => {
                 setErrors(err.response.data.error.errors)
             })
     };
+    console.log('errors array in create', errors);
     return (
         <div>
             <h1>My Safari</h1>
-            {isUpdate ? null :<h3>Edit Animal</h3>}
-            <Link to={'/'}>Back to Home</Link>
+            
+            {isUpdate ? null :<h3>Add a Safari Animal:</h3>}
+            
         <form onSubmit={onSubmitHandler}>
             <div>
             {errors ? Object.keys(errors).map ((key, index) => <p key = {index} >{errors[key].message}</p>): null}
@@ -69,7 +72,7 @@ const Safari = (props) => {
                 </p>
                 <p>
                     <label>Number of Animals:</label>
-                    <input type="text" value={safariNumber} name="number" onChange = {(e)=> setSafariNumber(e.target.value)}/>
+                    <input type="number" value={safariNumber} name="number" onChange = {(e)=> setSafariNumber(e.target.value)}/>
                 </p>
                 <p>
                     <label>Location:</label>
@@ -83,7 +86,9 @@ const Safari = (props) => {
         {/* ternary or if else statement (react return statement use ternary only) */}
             <input value={isUpdate ? "Update Safari" : "Add Safari"} type="submit"/>
         </form>
+        <div><Link to={'/'}>Back to Home</Link></div>
         </div>
+        
     );
 };
 
